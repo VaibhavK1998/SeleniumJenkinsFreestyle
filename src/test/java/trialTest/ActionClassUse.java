@@ -7,15 +7,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import utility.BaseClass2;
 
 import java.time.Duration;
 
-public class ActionClassUse {
+public class ActionClassUse extends BaseClass2 {
     // note every method of the action class return the action class object. it forms method chaining struccture
-  static WebDriver driver;
+private static WebDriver driver;
 
-@Test
+//@Test
     public static void leftClick(){
         ChromeOptions ops = new ChromeOptions();
         ops.addArguments("--disable-notifications");
@@ -28,7 +30,7 @@ public class ActionClassUse {
         Actions act=new Actions(driver);
         act.contextClick(leftClickButton).perform();
     }
-    @Test
+  //  @Test
     public static void rightClick(){
         ChromeOptions ops = new ChromeOptions();
         ops.addArguments("--disable-notifications");
@@ -41,7 +43,7 @@ public class ActionClassUse {
         Actions act=new Actions(driver);
         act.contextClick(rightClickButton).perform();
     }
-    @Test
+   // @Test
     public static void doubleClick(){
         ChromeOptions ops = new ChromeOptions();
         ops.addArguments("--disable-notifications");
@@ -56,7 +58,7 @@ public class ActionClassUse {
 
     }
 
-    @Test
+   // @Test
     public static void dragAndDrop1(){
         ChromeOptions ops = new ChromeOptions();
         ops.addArguments("--disable-notifications");
@@ -70,7 +72,7 @@ public class ActionClassUse {
         Actions act=new Actions(driver);
         act.dragAndDrop(dragme,dropMe).perform();
     }
-    @Test
+  //  @Test
     public static void dragAndDrop2(){ // drag and drop images
         ChromeOptions ops = new ChromeOptions();
         ops.addArguments("--disable-notifications");
@@ -89,20 +91,11 @@ public class ActionClassUse {
     }
 @Test
     public static void mouseOverAction(){
-    System.out.println("mouse over action");
-        ChromeOptions ops = new ChromeOptions();
-        ops.addArguments("--disable-notifications");
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(ops);
+        driver= BaseClass2.getDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.get("https://www.flipkart.com/");
-        driver.manage().deleteAllCookies();
-        driver.findElement(By.xpath("//button[@class='_2KpZ6l _2doB4z']")).click();
-        WebElement mouseOver= driver.findElement(By.xpath("//div[@class='_1wE2Px']"));
-        Actions act=new Actions(driver);
-        act.moveToElement(mouseOver).perform();
-        driver.findElement(By.xpath("//a[@class='_1BJVlg _11MZbx']")).click();
+    Assert.assertEquals(driver.getTitle(),"sdefe");
 
     }
 }
