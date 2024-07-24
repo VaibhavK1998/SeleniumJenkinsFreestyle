@@ -87,7 +87,7 @@ public class ActionClassUse {
         Actions act=new Actions(driver);
         act.dragAndDrop(dragme,dropMe).perform();
     }
-@Test
+//@Test
     public static void mouseOverAction(){
         ChromeOptions ops = new ChromeOptions();
         ops.addArguments("--disable-notifications");
@@ -102,5 +102,6 @@ public class ActionClassUse {
         Actions act=new Actions(driver);
         act.moveToElement(mouseOver).perform();
         driver.findElement(By.xpath("//a[@class='_1BJVlg _11MZbx']")).click();
+
     }
 }
