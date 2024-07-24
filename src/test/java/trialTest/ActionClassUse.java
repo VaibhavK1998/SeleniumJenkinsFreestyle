@@ -87,8 +87,9 @@ public class ActionClassUse {
         Actions act=new Actions(driver);
         act.dragAndDrop(dragme,dropMe).perform();
     }
-//@Test
+@Test
     public static void mouseOverAction(){
+    System.out.println("mouse over action");
         ChromeOptions ops = new ChromeOptions();
         ops.addArguments("--disable-notifications");
         WebDriverManager.chromedriver().setup();
