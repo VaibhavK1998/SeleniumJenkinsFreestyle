@@ -23,7 +23,7 @@ public class DeleteAllureReport {
                     System.out.println("Allure report directory does not exist.");
                 }
             }
-
+// addinng comment to check git push merge request
         }
 
 
