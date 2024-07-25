@@ -3,6 +3,7 @@ package utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeClass;
@@ -27,8 +28,11 @@ public class BaseClass2 {
     @BeforeMethod
     public WebDriver initialize(String driverName) {
             if (driverName.equals("chrome")||driverName.equals("CH")) {
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless");
+                options.addArguments("--disable-gpu");
                 WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(options);
             } else if (driverName.equals("edge")) {
                 WebDriverManager.edgedriver().setup();
                 driver = new EdgeDriver();
