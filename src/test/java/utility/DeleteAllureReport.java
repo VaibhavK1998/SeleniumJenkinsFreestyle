@@ -8,7 +8,7 @@ public class DeleteAllureReport {
 
     @Step("delete previous allure report")
     public static void deleteAllureReports(){
-        // comment for testinmg
+        // comment for testinmg configuratiom set
                 File directory = new File("allure-results");
                 if (directory.exists()) {
                     File[] files = directory.listFiles();
