@@ -8,7 +8,7 @@ public class DeleteAllureReport {
 
     @Step("delete previous allure report")
     public static void deleteAllureReports(){
-                File directory = new File("C:\\Users\\HP\\Desktop\\AutomationProjects\\SeleniumJenkinsTesting\\allure-results");
+                File directory = new File("allure-results");
                 if (directory.exists()) {
                     File[] files = directory.listFiles();
                     if (files != null) {
